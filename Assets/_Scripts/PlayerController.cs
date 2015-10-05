@@ -18,6 +18,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	// PUBLIC INSTANCE VAL.
 	public float fireRate = 0.0f;
+	public int playerLife = 3;
 
 	// PRIVATE INSTANCE VAL.
 	private float nextFire;
@@ -94,9 +95,25 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if( layerName == "Bullet (Enemy)" || layerName == "Enemy"){
-			FindObjectOfType<GameManager>().GameOver();
+			Destroy(c.gameObject);
+			this.playerLife--;
+
+			// For Display Player Life
+			int localPlayerLife = this.playerLife % 3;
+			if( localPlayerLife == 2) {
+				GameObject.FindWithTag("Star01").SetActive(false);
+			}
+			if( localPlayerLife == 1) {
+				GameObject.FindWithTag("Star02").SetActive(false);
+			}
+
 			spaceship.Explosion();
-			Destroy (gameObject);
+
+
+			if( playerLife <= 0 ) {
+				FindObjectOfType<GameManager>().GameOver();
+				Destroy (gameObject);
+			}
 		}
 	}
 }

@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f00fd8d73c03d4090bc940a4fb3333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
+  player: {fileID: 158962, guid: 3095906d314665f4a994a140d6d67270, type: 2}
 --- !u!4 &1412233681
 Transform:
   m_ObjectHideFlags: 0
