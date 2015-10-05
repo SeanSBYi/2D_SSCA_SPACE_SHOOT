@@ -1,4 +1,18 @@
-﻿using UnityEngine;
+﻿///////////////////////////////////////////////////////////////////////////////
+// Files:			GameManager.cs
+//
+// Author:			Sangbeom Yi
+// Description:		GameManager
+//
+// Revision History 09/18/2015 file created
+//					09/21/2015 add player movement
+//					09/23/2015 change player movement mouse->keyboard
+//					09/25/2015 add player shot function
+//					09/29/2015 check the player collider
+//
+// Last Modified by	10/04/2015
+
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -36,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 		Vector2 direction = _CheckInput ();
 		Move (direction);
 
+		// Check a press key.
 		if (Input.GetKey("z") && Time.time > nextFire){
 			nextFire = Time.time + fireRate;
 			spaceship.Shot (transform);
@@ -73,6 +88,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D c) {
 		string layerName = LayerMask.LayerToName(c.gameObject.layer);
 
+		// Crash enemy bullet and enemy ship
 		if( layerName == "Bullet (Enemy)") {
 			Destroy(c.gameObject);
 		}

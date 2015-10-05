@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿//////////////////////////////////////////////////////////////////////////////
+// Files:			Score.cs
+//
+// Author:			Sangbeom Yi
+// Description:		Manage Score Board
+//
+// Revision History 09/28/2015 file created
+//					10/01/2015 add show score
+//					10/02/2015 add save high score
+//
+// Last Modified by	10/05/2015
+using UnityEngine;
 using System.Collections;
 
 public class Score : MonoBehaviour
@@ -11,14 +22,14 @@ public class Score : MonoBehaviour
 	private int score;
 	private int highScore;
 	private string highScoreKey = "highScore";
-	
-	void Start ()
-	{
+
+	// Use this for initialization
+	void Start () {
 		Initialize ();
 	}
-	
-	void Update ()
-	{
+
+	// Update is called once per frame
+	void Update () {
 		// Update HighScore Point
 		if (highScore < score) {
 			highScore = score;
@@ -29,21 +40,18 @@ public class Score : MonoBehaviour
 	}
 	
 	// Initialize game.
-	private void Initialize ()
-	{
+	private void Initialize (){
 		score = 0;
 		highScore = PlayerPrefs.GetInt (highScoreKey, 0);
 	}
 	
 	// Add Point
-	public void AddPoint (int point)
-	{
+	public void AddPoint (int point){
 		score = score + point;
 	}
 	
 	// Save the Highscore
-	public void Save ()
-	{
+	public void Save () {
 		// Save the HighscorePoint
 		PlayerPrefs.SetInt (highScoreKey, highScore);
 		PlayerPrefs.Save ();

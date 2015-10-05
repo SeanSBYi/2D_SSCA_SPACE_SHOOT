@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿///////////////////////////////////////////////////////////////////////////////
+// Files:			Enemy.cs
+//
+// Author:			Sangbeom Yi
+// Description:		Enemy Controller
+//
+// Revision History 09/18/2015 file created
+//					09/22/2015 Enemy can shot.
+//					
+// Last Modified by	10/02/2015
+
+using UnityEngine;
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
@@ -45,9 +56,11 @@ public class Enemy : MonoBehaviour {
 		Transform playerBulletTransform = c.transform.parent;
 		Bullet bullet =  playerBulletTransform.GetComponent<Bullet>();
 		hp = hp - bullet.power;
+
+		// Bullet doens't have hp. So, bullet trigger the collider, destroy the object ASAP.
 		Destroy(c.gameObject);
 
-		// Check the Destroy Enemy
+		// Check the Destroy HP, if Enemy HP is lower than 0, enemy will be die.
 		if(hp <= 0 ) {
 			// Add Score.
 			FindObjectOfType<Score>().AddPoint(point);
@@ -58,6 +71,7 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		// If it is GameOver, Destroy All Game Object for next game.
 		if (FindObjectOfType<GameManager> ().IsGameOver ()) {
 			Destroy (gameObject);
 		}

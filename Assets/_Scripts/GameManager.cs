@@ -6,8 +6,9 @@
 //
 // Revision History 10/01/2015 file created
 //					10/02/2015 add title object
+//					10/05/2015 add GameOver Flag
 //
-// Last Modified by	10/04/2015
+// Last Modified by	10/05/2015
 
 using UnityEngine;
 using System.Collections;
