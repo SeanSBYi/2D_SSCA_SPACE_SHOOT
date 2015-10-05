@@ -1,6 +1,9 @@
 # 2D_SSCA_SPACE_SHOOT
 COMP305-Unity 2D Shooting Game
 
+#Game Rule
+-Player Life : 3
+-Enemy Wave 5 (1-4 Normal, 5 Boss); repeat waves
 
 
 #Controls
