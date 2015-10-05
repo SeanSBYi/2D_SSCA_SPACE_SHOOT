@@ -1,8 +1,8 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// Files:			GameManager.cs
+// Files:			PlayerController.cs
 //
 // Author:			Sangbeom Yi
-// Description:		GameManager
+// Description:		Control the Player Object
 //
 // Revision History 09/18/2015 file created
 //					09/21/2015 add player movement
